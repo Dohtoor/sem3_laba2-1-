@@ -27,7 +27,7 @@ int main()
 
 	char buffer[256];			//баффер
 	unsigned int lines;			//количество строк
-	int size;			 	//размер файла
+	int size;					//размер файла
 	int line_size;				//длина строки
 	int number_buffer;
 	int number;
@@ -38,10 +38,10 @@ int main()
 
 	fread(buffer, sizeof(int), 1, inFile);
 
-	lines = static_cast<unsigned int>(static_cast<char>(buffer[0]));
-	lines = lines + static_cast<unsigned int>(static_cast<char>(buffer[1]))*256;
-	lines = lines + static_cast<unsigned int>(static_cast<char>(buffer[2]))*4096;
-	lines = lines + static_cast<unsigned int>(static_cast<char>(buffer[3]))*65536;
+	lines = static_cast<unsigned int>(static_cast<unsigned char>(buffer[0]));
+	lines = lines + static_cast<unsigned int>(static_cast<unsigned char>(buffer[1])) *256;
+	lines = lines + static_cast<unsigned int>(static_cast<unsigned char>(buffer[2])) * 65536;
+	lines = lines + static_cast<unsigned int>(static_cast<unsigned char>(buffer[3])) * 16777216;
 
 	line_size = (size - 4) / lines;
 	
@@ -58,15 +58,16 @@ int main()
 		
 		for (int i = 0; i < line_size; i++)
 		{
-			number_buffer = static_cast<unsigned int>(static_cast<char>(buffer[i]));
+			number_buffer = static_cast<unsigned int>(static_cast<unsigned char>(buffer[i]));
 			std::cout << convert(number_buffer) << " ";
 
-			//std::cout << static_cast<unsigned int>(static_cast<char>(buffer[i])) << " ";
+			//std::cout << static_cast<unsigned int>(static_cast<unsigned char>(buffer[i])) << " ";
 		}
 
 		std::cout << std::endl;
 
 	}
+
 
 		std::cout << std::endl;
 
