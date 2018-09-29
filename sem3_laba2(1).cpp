@@ -25,10 +25,10 @@ int main()
 	FILE *inFile;
 	inFile = fopen("file_out.bin", "r");
 
-	char buffer[256];			//баффер
-	unsigned int lines;			//количество строк
-	int size;					//размер файла
-	int line_size;				//длина строки
+	char buffer[256];			//Р±Р°С„С„РµСЂ
+	unsigned int lines;			//РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
+	int size;			 	//СЂР°Р·РјРµСЂ С„Р°Р№Р»Р°
+	int line_size;				//РґР»РёРЅР° СЃС‚СЂРѕРєРё
 	int number_buffer;
 	int number;
 
